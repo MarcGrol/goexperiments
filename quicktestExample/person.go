@@ -13,8 +13,8 @@ type person struct {
 
 func (p person) Generate(rand *rand.Rand, size int) reflect.Value {
 	randomP := person{
-		name: randomString(rand, randomInt(rand, 1, 32)),
-		age:  randomInt(rand, 0, 100),
+		name: isStringWithLength(rand, isIntBetween(rand, 1, 32)),
+		age:  isIntBetween(rand, 0, 100),
 	}
 	log.Printf("person: %#v", randomP)
 	return reflect.ValueOf(randomP)
